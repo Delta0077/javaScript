@@ -9,6 +9,7 @@ renderNotes(notes, filters)
 // 53 Event handling through javaScript
 document.querySelector('#create-note').addEventListener('click', function (e) {
     notes.push({
+        id: uuidv4(),
         title: '',
         body: ''
     })
