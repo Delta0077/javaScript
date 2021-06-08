@@ -45,7 +45,7 @@ const generateTodoDOM = function (todo) {
     const removeButton = document.createElement('button')
 
     // Setup todo checkbox (setting up input type of checkbox)
-    checkbox.setAttribute('type' , 'checkbox')
+    checkbox.setAttribute('type', 'checkbox')
     todoEl.appendChild(checkbox)
 
     // Setup the todoText
