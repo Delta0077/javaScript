@@ -19,8 +19,9 @@ const removeTodo = function (id) {
     const todoIndex = todos.findIndex (function (todo) {
         return todo.id === id
     })
+
     if (todoIndex > -1) {
-        todos.splice (todoIndex, 1)
+        todos.splice(todoIndex, 1)
     }
 }
 
@@ -66,13 +67,11 @@ const generateTodoDOM = function (todo) {
     removeButton.textContent = 'x'
     todoText.appendChild(removeButton)
 
-    removeButton.addEventListener('click', function () {
+    removeButton.addEventListener('click', function() {
         removeTodo(todo.id)
         saveTodos(todos)
         renderTodos(todos, filters)
     })
-    
-   
 
     return todoEl
 }
