@@ -8,13 +8,14 @@ renderNotes(notes, filters)
 
 // 53 Event handling through javaScript
 document.querySelector('#create-note').addEventListener('click', function (e) {
+    const id = uuidv4()
     notes.push({
-        id: uuidv4(),
+        id: id,
         title: '',
         body: ''
     })
     saveNotes(notes)
-    renderNotes(notes, filters)
+    location.assign(`/edit.html#${id}`)
 })
 
 document.querySelector('#search-text').addEventListener('input', function (e) {
