@@ -34,6 +34,21 @@ window.addEventListener('storage', function (e) {
     }
 })
 
+// const now = moment()
+// now.subtract(1, 'week').subtract(20, 'days')
+// console.log(now.format('MMMM Do, YYYY, h:mm:ss a'))
+// console.log(now.fromNow())
+
+// const nowTimestamp = now.valueOf()
+
+// console.log(moment(nowTimestamp).toString())
+
+const birthday = moment()
+birthday.year(1996).month(8).dates(05)
+console.log(birthday.format('MMM D, YYYY'))
+
+
+
 // Unix Epoch - January 1st 1970 00:00:00
 // const now = new Date()
 // const timestamp = now.getTime()
@@ -41,17 +56,17 @@ window.addEventListener('storage', function (e) {
 // const myDate = new Date(timestamp)
 // console.log(myDate.getFullYear())
 
-const dateOne = new Date('March 1 2018 05:40:20')
-const dateTwo = new Date()
+// const dateOne = new Date('March 1 2018 05:40:20')
+// const dateTwo = new Date()
 
-const dateOneTimestamp = dateOne.getTime()
-const dateTwoTimestamp = dateTwo.getTime()
+// const dateOneTimestamp = dateOne.getTime()
+// const dateTwoTimestamp = dateTwo.getTime()
 
-if (dateOneTimestamp < dateTwoTimestamp) {
-    console.log(dateOne.toString())
-} else if (dateTwoTimestamp < dateOneTimestamp) {
-    console.log(dateTwo.toString())
-}
+// if (dateOneTimestamp < dateTwoTimestamp) {
+//     console.log(dateOne.toString())
+// } else if (dateTwoTimestamp < dateOneTimestamp) {
+//     console.log(dateTwo.toString())
+// }
 
 // console.log(`Year:${now.getFullYear()}`)
 // console.log(`Month:${now.getMonth()}`)
