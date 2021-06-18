@@ -7,8 +7,11 @@ const getSavedNotes = () => {
     // } else {
     //     return []
     // }
-    return notesJSON ? JSON.parse(notesJSON) : []
-    
+    try {
+        return notesJSON ? JSON.parse(notesJSON) : []
+    } catch (e) {
+        return []
+    }
 }
 
 // Save the notes to localStorage
