@@ -7,7 +7,11 @@ const getSavedTodos = () => {
     // } else {
     //     return []
     // }
-    return todosJSON ? JSON.parse(todosJSON) : []
+    try {
+        return todosJSON ? JSON.parse(todosJSON) : []
+    } catch (e) {
+        return []
+    }
 }
 
 // Save todos to localStorage
