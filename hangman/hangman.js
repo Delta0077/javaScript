@@ -1,7 +1,35 @@
+
+
 const Hangman = function (word, remainingGuesses) {
     this.word = word.toLowerCase().split('')
     this.remainingGuesses = remainingGuesses
     this.gussedLetters = []
+    this.status = 'playing'
+}
+
+// Creating a function which will show current status of the game i.e playing, failed or finished 
+Hangman.prototype.calculateStatus = function () {
+    
+    // using array.every() method
+    const finished = this.word.every((letter) => this.gussedLetters.includes(letter))
+
+    // using if-else
+    //let finished = true
+    // this.word.forEach((letter) => {
+    //     if (this.gussedLetters.includes(letter)) {
+        
+    //     } else {
+    //         finished = false
+    //     }
+    // })
+
+    if (this.remainingGuesses === 0) {
+        this.status = 'failed'
+    } else if (finished) {
+        this.status = 'finished'
+    } else {
+        this.status = 'playing'
+    }
 }
 
 Hangman.prototype.getPuzzle = function () {
@@ -30,17 +58,6 @@ Hangman.prototype.makeGuess = function (guess) {
     if (isUnique && isBadGuess ) {
         this.remainingGuesses--
     }
+
+    this.calculateStatus()
 }
-
-const game1 = new Hangman('Cat', 2)
-
-console.log(game1.getPuzzle())
-console.log(game1.remainingGuesses)
-
-// Printing on the console which key was pressed
-window.addEventListener ('keypress', function(e) {
-    const guess = String.fromCharCode(e.charCode)
-    game1.makeGuess(guess)
-    console.log(game1.getPuzzle())
-    console.log(game1.remainingGuesses)
-})
