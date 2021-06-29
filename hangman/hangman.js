@@ -32,6 +32,17 @@ Hangman.prototype.calculateStatus = function () {
     }
 }
 
+// Setting up a new method to get back a status message
+Hangman.prototype.getStatusMessage = function () {
+    if (this.status === 'playing') {
+        return `Guesses left ${this.remainingGuesses}`
+    } else if (this.status === 'failed') {
+        return `Nice try! The word was "${this.word.join('')}".`// using array.join() method to convert the array back to string
+    } else {
+        return 'Good job! You guessed the correct word (o_o).'
+    }
+}
+
 Hangman.prototype.getPuzzle = function () {
     let puzzle = ''
 
@@ -50,6 +61,11 @@ Hangman.prototype.makeGuess = function (guess) {
     guess = guess.toLowerCase()
     const isUnique = !this.gussedLetters.includes(guess)
     const isBadGuess = !this.word.includes(guess)
+
+    // disable new guesses unless 'playing'
+    if (this.status != 'playing') {
+        return
+    }
 
     if (isUnique) {
         this.gussedLetters.push(guess)
