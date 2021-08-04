@@ -27,20 +27,16 @@ window.addEventListener ('keypress', (e) => {
     guessesEl.textContent = game1.getStatusMessage()
 })
 
-getPuzzle("2",(error, puzzle) =>{
-    if (error) {
-        console.log(`Error: ${error}`)
-    } else {
-        console.log(puzzle)
-    }
+getPuzzle('2').then((puzzle) => {
+    console.log(puzzle)
+}, (err) => {
+    console.log(`Error: ${err}`)
 })
 
-getCountry('IN', (error, country) => {
-    if (error) {
-        console.log(error)
-    } else {
-        console.log(`Country name: ${country.name}`)
-    }
+getCountry('IN').then((country) => {
+    console.log(country.name)
+}, (err) => {
+    console.log(`Error: ${err}`)
 })
 
 // Making an HTTP request
