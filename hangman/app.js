@@ -33,11 +33,11 @@ getPuzzle('2').then((puzzle) => {
     console.log(`Error: ${err}`)
 })
 
-// getCountry('IN').then((country) => {
-//     console.log(country.name)
-// }, (err) => {
-//     console.log(`Error: ${err}`)
-// })
+getCountry('IN').then((country) => {
+    console.log(country.name)
+}).catch((err) => {
+    console.log(`Error: ${err}`)
+})
 
 // fetch('http://puzzle.mead.io/puzzle', {}).then((response) => {
 //     if (response.status === 200) {
