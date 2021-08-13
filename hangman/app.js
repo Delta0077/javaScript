@@ -39,15 +39,21 @@ getPuzzle('2').then((puzzle) => {
 //     console.log(`Error: ${err}`)
 // })
 
+getCurrentCountry().then((country) => {
+    console.log(country.name)
+}).catch((error) => {
+    console.log(error)
+})
+
 
 // combining getCountry() with newly created getLocation() in order to get full name of a country
-getLocation().then((location) => {
-    return getCountry(location.country)
-}).then ( (country) => {
-    console.log(country.name)
-}).catch((err) => {
-    console.log(`Error: ${err}`)
-})
+// getLocation().then((location) => {
+//     return getCountry(location.country)
+// }).then ( (country) => {
+//     console.log(country.name)
+// }).catch((err) => {
+//     console.log(`Error: ${err}`)
+// })
 
 // fetch('http://puzzle.mead.io/puzzle', {}).then((response) => {
 //     if (response.status === 200) {

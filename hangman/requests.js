@@ -9,6 +9,8 @@ const getPuzzle = async (wordCount) => {
     }
 }
 
+
+
 // const getPuzzleOld = (wordCount) => {
 //     return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`).then((response) => {
 //          if (response.status === 200) {
@@ -21,25 +23,56 @@ const getPuzzle = async (wordCount) => {
 //      })
 //  }
 
-// Converting XMLHttpRequest with fetch API
-const getCountry = (countryCode) => {
-    return fetch('http://restcountries.eu/rest/v2/all').then((response) => {
-        if (response.status === 200) {
-            return response.json()
-        } else {
-            throw new Error('Unable to fetch data!')
-        }
-    }).then((data) => {
-        return data.find((country) => country.alpha2Code === countryCode)
-    })
+const getCurrentCountry = async () => {
+    const location = await getLocation()
+    return getCountry(location.country)
 }
 
-const getLocation = () => {
-    return fetch('http://ipinfo.io/json?token=ee029dd58ca974').then((response) => {
-        if (response.status === 200) {
-            return response.json()
-        } else {
-            throw new Error('Unable to fetch Location!')
-        }
-    })
+
+// Converting XMLHttpRequest with fetch API
+// converting promises to async/await function
+const getCountry = async (countryCode) => {
+    const response = await fetch('http://restcountries.eu/rest/v2/all')
+
+    if (response.status === 200) {
+        const data = await response.json()
+        return data.find((country) => country.alpha2Code === countryCode)
+    } else {
+        throw new Error('Unable to fecth country details!')
+    }
 }
+
+// const getCountryOld = (countryCode) => {
+//     return fetch('http://restcountries.eu/rest/v2/all').then((response) => {
+//         if (response.status === 200) {
+//             return response.json()
+//         } else {
+//             throw new Error('Unable to fetch data!')
+//         }
+//     }).then((data) => {
+//         return data.find((country) => country.alpha2Code === countryCode)
+//     })
+// }
+
+// Converting to async/await function
+const getLocation = async () => {
+
+    const response = await fetch('http://ipinfo.io/json?token=ee029dd58ca974')
+
+    if (response.status === 200) {
+        return response.json()
+
+    } else {
+        throw new Error('Unable to get the current location!')
+    }
+}
+
+// const getLocation = () => {
+//     return fetch('http://ipinfo.io/json?token=ee029dd58ca974').then((response) => {
+//         if (response.status === 200) {
+//             return response.json()
+//         } else {
+//             throw new Error('Unable to fetch Location!')
+//         }
+//     })
+// }
