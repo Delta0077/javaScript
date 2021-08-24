@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-image: linear-gradient(red, yellow);
+  background: #808080;
   color: #fafafa;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
@@ -61,7 +61,7 @@ p {
   color: black;
 }
 #guesses {
-  border-radius: 50px;
+  border-radius: 2px;
   border-color: black;
   background-color: #fafafa;
   color: black;
