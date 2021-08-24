@@ -1,6 +1,6 @@
 // using async and await instead of promises i.e const getPuzzleOld
 const getPuzzle = async (wordCount) => {
-    const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+    const response = await fetch(`//puzzle.mead.io/puzzle?wordCount=${wordCount}`)
     if (response.status === 200) {
         const data = await response.json()
         return data.puzzle
@@ -32,7 +32,7 @@ const getCurrentCountry = async () => {
 // Converting XMLHttpRequest with fetch API
 // converting promises to async/await function
 const getCountry = async (countryCode) => {
-    const response = await fetch('http://restcountries.eu/rest/v2/all')
+    const response = await fetch('//restcountries.eu/rest/v2/all')
 
     if (response.status === 200) {
         const data = await response.json()
@@ -57,7 +57,7 @@ const getCountry = async (countryCode) => {
 // Converting to async/await function
 const getLocation = async () => {
 
-    const response = await fetch('http://ipinfo.io/json?token=ee029dd58ca974')
+    const response = await fetch('//ipinfo.io/json?token=ee029dd58ca974')
 
     if (response.status === 200) {
         return response.json()
