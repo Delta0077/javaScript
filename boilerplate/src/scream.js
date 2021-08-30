@@ -1,0 +1,1 @@
+export const scream = (sentence) => `${sentence.toUpperCase()}!`
