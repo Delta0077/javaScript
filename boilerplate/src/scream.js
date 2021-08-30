@@ -1,1 +1,2 @@
-export const scream = (sentence) => `${sentence.toUpperCase()}!`
+const scream = (sentence) => `${sentence.toUpperCase()}!`
+export { scream as default }
